@@ -1,0 +1,12 @@
+.minicart{
+    position: fixed;
+    z-index: 9999;
+    background-color: #ffffffd6;
+    top:0;
+    width: 100%;
+}
+
+.link {
+    color:black;
+    text-decoration: none;
+}

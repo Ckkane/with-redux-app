@@ -1,0 +1,51 @@
+
+*{
+    font-family: "Nunito", sans-serif;
+}
+
+body{
+    height: 9000px;
+}
+
+
+.container{
+    width: 1500px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.btn-red{
+  background-color: #f25240;
+  padding: 7px 15px;
+  border: none;
+  border-radius: 322px;
+  font-size:15px;
+  color:white;
+  margin: 0 0;
+  cursor: pointer;
+}
+
+
+
+@media (max-width: 1400px) {
+    .container{
+        width: 1100px;
+    }
+
+  }
+
+  @media (max-width: 990px) {
+    .container{
+        width: 900px;
+    }
+
+  }
+
+  @media (max-width: 770px) {
+    .container{
+        width: 600px;
+    }
+
+  }
