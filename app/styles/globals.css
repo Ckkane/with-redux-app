@@ -1,6 +1,7 @@
 
 *{
-    font-family: "Nunito", sans-serif;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
 }
 
 body{
@@ -17,8 +18,8 @@ body{
 
 
 .btn-red{
-  background-color: #f25240;
-  padding: 7px 15px;
+  background-color: #ff7565;
+  padding: 9px 20px;
   border: none;
   border-radius: 322px;
   font-size:15px;

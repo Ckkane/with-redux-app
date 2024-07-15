@@ -1,7 +1,20 @@
+
+'use client'
 import styles from '../styles/MiniCart.module.css'
+
+import {
+    switchToggle,
+    getToggle
+  } from "@/lib/features/minicart/minicartSlice";
+  
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 
 
 const MiniCart = () => {
+
+    const dispatch = useAppDispatch();
+    const items = useAppSelector(getToggle);
+
     return (
         <div className={styles.minicart}>
             <div className='container'>
@@ -20,7 +33,9 @@ const MiniCart = () => {
                         <span><a className={styles.link} href='/'>Акции</a></span>
                     </div>
                     <div style={{width:'140px'}}>
-                        <button className='btn-red'>Корзина</button>
+                        <button onClick={()=>{
+                            dispatch(switchToggle());
+                        }} className='btn-red'>Корзина</button>
                     </div>
                 </div>
             </div>
