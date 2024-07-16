@@ -67,7 +67,15 @@ export const minicartSlice = createAppSlice({
         state.items.find((item)=> item.id === action.payload.id ? item.count++ : null)
         updateCart(state)
       },
-    )
+    ),
+    deleteItem: create.reducer(
+      (state, action: PayloadAction<Product>) => {
+
+        state.items = state.items.filter((item) => item.id !== action.payload.id )
+
+        updateCart(state)
+      },
+    ),
     }),
     selectors: {
         getToggle: (minicart) => minicart.toggle,
@@ -77,9 +85,9 @@ export const minicartSlice = createAppSlice({
       },
 })
 
-export const { switchToggle, addToCart, updateState, minusItem, plusItem } = minicartSlice.actions;
+export const { switchToggle, addToCart, updateState, minusItem, plusItem, deleteItem } = minicartSlice.actions;
 
-export const { getToggle, getCartitems, getTotalPrice } = minicartSlice.selectors;
+export const { getToggle, getCartitems, getTotalPrice, getTotalItems } = minicartSlice.selectors;
 
 // export const incrementIfOdd =
 //   (amount: number): AppThunk =>

@@ -22,46 +22,48 @@ const FilledCart = () => {
 
     return (<div className={styles.wrapper}>
                 <div style={{width:'100%', display:'flex',flexDirection:"column",justifyContent:'space-between'}}>
-                    <div style={{}}>
-                    <h1 style={{textAlign:'center', margin:'40px 0px'}}>Корзина</h1>
-                        {items.map(item => {
-                            return <div style={{ display:'flex', alignItems:'center', padding:'5px 10px'}}>
-                                    <div style={{ backgroundColor:'#e6e6e6', padding:'5px'}}>
-                                        <img src={item.imgUrl} width={100} alt="" srcset="" />
-                                    </div>
-
-
-                                    <div style={{position:'absolute'}}>
-
-                                        <button style={{backgroundColor:'transparent',border:'none', cursor:'pointer', position:'inherit', top:'-50px', left:'350px'}} onClick={()=>{dispatch(deleteItem())}}>
-                                            <IconContext.Provider value={{ size:'1.5em', color: "red", className: "global-class-name" }}>
-                                                    <AiOutlineClose />
-                                            </IconContext.Provider>
-                                        </button>
-                                        
-                                    </div>
-
-                                    <div style={{display:'flex',alignContent:'center',flexDirection:'column', justifyContent:'space-between', width:'100%'}}>
-                                        <div>
-                                            <span style={{fontSize:'18px',padding:'10px', fontWeight:'600'}}>{item.title}</span>
+                    <div style={{backgroundColor:'#fafafa'}}>
+                        <h1 style={{textAlign:'center', padding:'40px 0px'}}>Корзина</h1>
+                        <div style={{overflow:'auto',maxHeight:'530px', backgroundColor:'#fff'}}>
+                            {items.map(item => {
+                                return <div style={{ display:'flex', alignItems:'center', padding:'5px 10px'}}>
+                                        <div style={{ backgroundColor:'#e6e6e6', padding:'5px'}}>
+                                            <img src={item.imgUrl} width={100} alt="" srcset="" />
                                         </div>
-                                        <div style={{display:'flex',border:'1px solid rgb(238, 238, 238)',borderRadius:'7px',width:'90px',height:'20px', fontSize:'17px',margin:'10px'}}>
-                                            <div style={{display:'flex', height:'100%',justifyContent:'center',alignItems:'center', width:'30px'}}>
-                                                <button onClick={() => dispatch(minusItem(item))} className='btn'>-</button>
+
+
+                                        <div style={{position:'relative'}}>
+
+                                            <button style={{backgroundColor:'transparent',border:'none', cursor:'pointer', position:'inherit', top:'-40px', left:'230px'}} onClick={()=>{dispatch(deleteItem(item))}}>
+                                                <IconContext.Provider value={{ size:'1.5em', color: "red", className: "global-class-name" }}>
+                                                        <AiOutlineClose />
+                                                </IconContext.Provider>
+                                            </button>
+                                            
+                                        </div>
+
+                                        <div style={{display:'flex',alignContent:'center',flexDirection:'column', justifyContent:'space-between', width:'100%'}}>
+                                            <div>
+                                                <span style={{fontSize:'18px',padding:'10px', fontWeight:'600'}}>{item.title}</span>
                                             </div>
-                                            <div style={{width:'45px',display:'flex',justifyContent:'center',height:'100%', alignItems:'center',borderLeft:'1px solid rgb(238, 238, 238)',borderRight:'1px solid rgb(238, 238, 238)'}}>
-                                                <span style={{fontSize:'12px'}}>{item.count}</span>
-                                            </div>
-                                            <div style={{display:'flex', height:'100%',justifyContent:'center',alignItems:'center',width:'30px'}}>
-                                                <button onClick={() => dispatch(plusItem(item))} className='btn'>+</button>
+                                            <div style={{display:'flex',border:'1px solid rgb(238, 238, 238)',borderRadius:'7px',width:'90px',height:'20px', fontSize:'17px',margin:'10px'}}>
+                                                <div style={{display:'flex', height:'100%',justifyContent:'center',alignItems:'center', width:'30px'}}>
+                                                    <button onClick={() => dispatch(minusItem(item))} className='btn'>-</button>
+                                                </div>
+                                                <div style={{width:'45px',display:'flex',justifyContent:'center',height:'100%', alignItems:'center',borderLeft:'1px solid rgb(238, 238, 238)',borderRight:'1px solid rgb(238, 238, 238)'}}>
+                                                    <span style={{fontSize:'12px'}}>{item.count}</span>
+                                                </div>
+                                                <div style={{display:'flex', height:'100%',justifyContent:'center',alignItems:'center',width:'30px'}}>
+                                                    <button onClick={() => dispatch(plusItem(item))} className='btn'>+</button>
+                                                </div>
                                             </div>
                                         </div>
+                                        <div style={{marginRight:'10px'}}>
+                                            <span>{item.price * item.count}₽</span>
+                                        </div>
                                     </div>
-                                    <div style={{marginRight:'10px'}}>
-                                        <span>{item.price * item.count}₽</span>
-                                    </div>
-                                </div>
-                        })}
+                            })}
+                        </div>
                     </div>
                     <div style={{display:'flex',flexDirection:'column', marginBottom:'50px'}}>
                         
