@@ -1,8 +1,14 @@
 import styles from '../styles/Cart.module.css'
+import { AiOutlineClose } from "react-icons/ai";
+import { IconContext } from "react-icons";
 
+import FilledCart from './FilledCart';
+import Empty from './EmptyCart';
 
 import {
-    selectItems
+    getCartitems,
+    switchToggle,
+    getTotalPrice
   } from "@/lib/features/minicart/minicartSlice";
   
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
@@ -10,20 +16,17 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 const Cart = () => {
 
     const dispatch = useAppDispatch();
-    const items = useAppSelector(selectItems);
+    const items = useAppSelector(getCartitems);
+    const totalPrice = useAppSelector(getTotalPrice);
 
     return (
         <div className={styles.container}>
-            <div className={styles.wrapper}>
-                <div style={{width:'100%'}}>
-                    <h1 style={{textAlign:'center', margin:'40px 0px'}}>Shopping Cart</h1>
-                    <div style={{}}>
-                        
-                    </div>
-                </div>
-                <div style={{backgroundColor:'#eee',width:'400px',height:'100%'}}>
-
-                </div>
+            <div></div>
+            <div style={{height:"100%",display:'flex',alignItems:'center'}}>
+                <button style={{backgroundColor:'transparent',border:'none', cursor:'pointer'}} onClick={()=>{dispatch(switchToggle())}}><IconContext.Provider value={{ size:'2.5em', color: "white", className: "global-class-name" }}>
+                        <AiOutlineClose />
+                </IconContext.Provider></button>
+                {items.length > 0 ? <FilledCart/> : <Empty/>}
             </div>
         </div>
     )

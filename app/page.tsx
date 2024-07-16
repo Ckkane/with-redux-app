@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Head from 'next/head'
 
 import Header from './components/Header'
-import MiniCart from './components/MiniCart'
+import Menu from './components/Menu'
 import Content from './components/Content'
 import Background from './components/Background'
 
@@ -16,10 +16,12 @@ export default function IndexPage() {
               <link rel="icon" href="/favicon.ico" />
               <link href="https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"></link>
               <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></link>
+              <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet"></link>
+
             </Head>
           <div>
             <Background/>
-            <MiniCart/>
+            <Menu/>
           </div>
             <Header/>
             <Content/>

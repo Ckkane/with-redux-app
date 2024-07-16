@@ -1,8 +1,5 @@
 import { createAppSlice } from "@/lib/createAppSlice";
-// import type { AppThunk } from "@/lib/store";
-import type { PayloadAction } from "@reduxjs/toolkit";
 import { fetchData } from "./productAPI";
-import { stat } from "fs";
 
 
 type State = {
@@ -21,16 +18,10 @@ export const productSlice = createAppSlice({
 
   initialState,
   reducers: (create) => ({
-    // addToList: create.reducer(
-    //   (state, action: PayloadAction<Array<Product>>) => {
-    //     state.items = action.payload;
-    //   },
-    // ),
 
     getData: create.asyncThunk(
       async () => {
         const response = await fetchData();
-        // The value we return becomes the `fulfilled` action payload
         return response;
       },
       {

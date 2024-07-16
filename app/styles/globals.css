@@ -4,6 +4,10 @@
   font-weight: 400;
 }
 
+img{
+  user-select: none;
+}
+
 body{
     height: 9000px;
 }
@@ -26,6 +30,20 @@ body{
   color:white;
   margin: 0 0;
   cursor: pointer;
+}
+
+.btn{
+  background-color: transparent;
+  border:none;
+  font-size: 20px;
+  color:#868686;
+  cursor: pointer;
+  font-weight: 200;
+  font-family: "Roboto Mono", monospace;
+}
+
+.btn:hover{
+  color:black;
 }
 
 
