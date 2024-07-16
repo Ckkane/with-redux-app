@@ -1,12 +1,14 @@
 import styles from '../styles/Cart.module.css'
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineClose, AiOutlineDelete } from "react-icons/ai";
 import { IconContext } from "react-icons";
 
 import {
     getCartitems,
     minusItem,
     plusItem,
-    getTotalPrice
+    getTotalPrice,
+    getTotalItems,
+    deleteItem
   } from "@/lib/features/minicart/minicartSlice";
   
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
@@ -16,6 +18,7 @@ const FilledCart = () => {
     const dispatch = useAppDispatch();
     const items = useAppSelector(getCartitems);
     const totalPrice = useAppSelector(getTotalPrice);
+    const totalItems = useAppSelector(getTotalItems);
 
     return (<div className={styles.wrapper}>
                 <div style={{width:'100%', display:'flex',flexDirection:"column",justifyContent:'space-between'}}>
@@ -26,6 +29,18 @@ const FilledCart = () => {
                                     <div style={{ backgroundColor:'#e6e6e6', padding:'5px'}}>
                                         <img src={item.imgUrl} width={100} alt="" srcset="" />
                                     </div>
+
+
+                                    <div style={{position:'absolute'}}>
+
+                                        <button style={{backgroundColor:'transparent',border:'none', cursor:'pointer', position:'inherit', top:'-50px', left:'350px'}} onClick={()=>{dispatch(deleteItem())}}>
+                                            <IconContext.Provider value={{ size:'1.5em', color: "red", className: "global-class-name" }}>
+                                                    <AiOutlineClose />
+                                            </IconContext.Provider>
+                                        </button>
+                                        
+                                    </div>
+
                                     <div style={{display:'flex',alignContent:'center',flexDirection:'column', justifyContent:'space-between', width:'100%'}}>
                                         <div>
                                             <span style={{fontSize:'18px',padding:'10px', fontWeight:'600'}}>{item.title}</span>
@@ -48,15 +63,37 @@ const FilledCart = () => {
                                 </div>
                         })}
                     </div>
-                    <div style={{display:'flex',flexDirection:'column'}}>
+                    <div style={{display:'flex',flexDirection:'column', marginBottom:'50px'}}>
+                        
+                        <div style={{margin:'0px 30px'}}>
+                            <div style={{display:'flex',flexDirection:'column', borderTop:'1px solid #dbdbdb', borderBottom:'1px solid #dbdbdb',padding:'20px'}}>
+                                <div style={{display:'flex',justifyContent:'space-between',alignItems:'center', fontSize:'20px',padding:'5px 0px'}}>
+                                    <span>В корзине:</span>
+                                    <span>{totalItems} товаров</span>
+                                </div>
 
-                        <span>Ваш заказ:</span>
-                        <div>
-                            <span>В корзине: </span>
-                            <span>{} товар</span>
+                                <div style={{display:'flex',justifyContent:'space-between',alignItems:'center', fontSize:'25px',padding:'5px 0px'}}>
+                                    <span>Итого:</span>
+                                    <span>{totalPrice}₽</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style={{height:'50px', width:'100%', alignItems:'center', display:'flex', justifyContent:'center'}}>
+                                <div style={{ display:'flex', justifyContent:'space-between',alignItems:'center', width:'300px'}}>
+                                    <span style={{}}>Доставка:</span>
+                                    <span>Бесплатно</span>
+                                </div>
+                            </div>
+
+                        <div style={{width:'100%', display:'flex', justifyContent:'center'}}>
+                            <input type="text" placeholder='Введите купон' />
+                            <button className='btn-red' style={{borderRadius:'0'}}>Применить</button>
+                        </div>
+                        <div style={{marginTop:'10px', display:'flex',justifyContent:'center'}}>
+                            <button className='btn-red' style={{borderRadius:'0'}}>Оформить заказ</button>
                         </div>
                         <div>
-                            <span>Итог {totalPrice}</span>
                         </div>
                     </div>
                 </div>
