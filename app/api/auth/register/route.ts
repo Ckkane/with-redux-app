@@ -14,10 +14,10 @@ export async function POST(response : any){
 
     try {
         const doc = new UserModel({
-            name: data.name,
-            password: data.password,
-            login: data.login,
-            email: data.email
+            firstName: data.firstName,
+            secondName: data.secondName,
+            phoneNumber: data.phoneNumber,
+            password: data.password
         })
 
         const user = await doc.save();
@@ -27,6 +27,8 @@ export async function POST(response : any){
         })
 
     } catch (error) {
-        
+        return NextResponse.json({
+            message:'error'
+        })
     }
 }
