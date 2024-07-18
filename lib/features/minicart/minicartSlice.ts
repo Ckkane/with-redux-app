@@ -48,6 +48,11 @@ export const minicartSlice = createAppSlice({
     ),
     updateState: create.reducer(
       (state) => {
+
+        if(!localStorage.getItem('mini-cart-items')){
+            localStorage.setItem('mini-cart-items', JSON.stringify(state.items))
+        }
+
         state.items = [...JSON.parse(localStorage.getItem('mini-cart-items'))]
         updateCart(state);
       },

@@ -1,0 +1,13 @@
+.container{
+    width: 200vh;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+
+    /* background-image: url('https://digitalsynopsis.com/wp-content/uploads/2017/07/beautiful-color-ui-gradients-backgrounds-eds-sunset-gradient.png');
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
