@@ -31,6 +31,7 @@ export const productSlice = createAppSlice({
         fulfilled: (state, action) => {
           state.status = "idle"; 
 
+
           state.items = [...action.payload]
 
         },

@@ -18,7 +18,7 @@ export const fetchData = async () => {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
-    const result: { data: Array<Product> } = await response.json();
+    const result = await response.json();
 
     return result;
   };
