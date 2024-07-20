@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const connection: { isConnected: number } = {}
+const connection = {}
 
 
 async function dbConnect() {
