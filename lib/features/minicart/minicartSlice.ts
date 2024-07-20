@@ -53,7 +53,9 @@ export const minicartSlice = createAppSlice({
             localStorage.setItem('mini-cart-items', JSON.stringify(state.items))
         }
 
-        state.items = [...JSON.parse(localStorage.getItem('mini-cart-items'))]
+        let data = localStorage.getItem('mini-cart-items') || "";
+
+        state.items = [...JSON.parse(data)]
         updateCart(state);
       },
     ),
