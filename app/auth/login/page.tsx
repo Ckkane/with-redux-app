@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Head from 'next/head'
 
-import Register from '../../components/Authentication'
+import Auth from '../../components/Authentication/Auth'
 
 export default function IndexPage() {
 
@@ -17,7 +17,7 @@ export default function IndexPage() {
 
             </Head>
           <div>
-            <Register/>
+            <Auth/>
           </div>
         </div>
 }
