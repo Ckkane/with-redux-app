@@ -88,7 +88,8 @@ export const minicartSlice = createAppSlice({
         getToggle: (minicart) => minicart.toggle,
         getCartitems: (minicart) => minicart.items,
         getTotalPrice: (minicart) => minicart.totalPrice,
-        getTotalItems: (minicart) => minicart.totalItems
+        getTotalItems: (minicart) => minicart.totalItems,
+        getMethod: (minicart) => minicart.totalItems
       },
 })
 

@@ -1,5 +1,6 @@
 'use client'
 import Cart from './Cart'
+import Twopizzas from './Twopizzas'
 
 import { useEffect } from 'react';
 
@@ -9,11 +10,16 @@ import {
 } from "@/lib/features/minicart/minicartSlice";
 
 
+import {
+    getPizzasToggle
+  } from "@/lib/features/product/productSlice";
+
 import { useAppSelector, useAppDispatch } from "@/lib/hooks";
 
 const Background = () => {
 
     let toggle = useAppSelector(getToggle);
+    let pizzasToggle = useAppSelector(getPizzasToggle);
     const dispatch = useAppDispatch();
 
 
@@ -25,6 +31,7 @@ const Background = () => {
     return ( 
         <div>
             { toggle ? null : <Cart/>}
+            { pizzasToggle ? <Twopizzas/> : null}
         </div>
     )
 }

@@ -13,28 +13,42 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 const Login = () => {
 
     let [password, setPassword] = useState('');
+    let [email, setEmail] = useState('');
 
     const dispatch = useAppDispatch();
-    const method = useAppSelector(getMethod);
+
+
+    function login() {
+        axios.post('/api/auth/login', {
+            password: password,
+            email: email
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    }
 
     return (
-        <div style={{backgroundColor:'rgb(249, 249, 249)',width:'600px',height:'500px', borderRadius:'10px'}}>
-                <div style={{display:'flex',flexDirection:'column', alignItems:'center', justifyContent:'space-between',height:'100%'}}>
+        <div style={{backgroundColor:'rgb(249, 249, 249)', width:'600px', height:'500px', borderRadius:'10px'}}>
+                <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-between', height:'100%'}}>
                     <h1>Авторизация</h1>
 
                     <span>Заполните данные для авторизации</span>
 
-                    <div style={{display:'flex',flexDirection:'column',justifyContent:'center', height:'100%',width:'300px'}}>
+                    <div style={{display:'flex', flexDirection:'column', justifyContent:'center', height:'100%', width:'300px'}}>
 
-                    <div style={{display:'flex',flexDirection:'column',padding:'10px'}}>
+                    <div style={{display:'flex', flexDirection:'column', padding:'10px'}}>
 
                         <div style={{padding:'10px 0px'}}>
                                 <span style={{color:'#5e5e5e'}}>Email</span>
                             </div>
-                            <input style={{padding:'10px'}} onChange={(e)=> setPassword(e.target.value)} value={password} type="password" placeholder='Введите Email' />
+                            <input style={{padding:'10px'}} onChange={(e)=> setEmail(e.target.value)} value={email} placeholder='Введите Email' />
                         </div>
                        
-                        <div style={{display:'flex',flexDirection:'column',padding:'10px'}}>
+                        <div style={{display:'flex', flexDirection:'column',padding:'10px'}}>
 
                         <div style={{padding:'10px 0px'}}>
                                 <span style={{color:'#5e5e5e'}}>Пароль</span>
@@ -43,7 +57,7 @@ const Login = () => {
                         </div>
                         <div style={{display:'flex',flexDirection:'column',height:'100px',justifyContent:'space-around',textAlign:'center'}}>
 
-                            <button className='btn-red' onClick={()=> register()}>Войти</button>
+                            <button className='btn-red' onClick={()=> login()}>Войти</button>
                             <span style={{fontSize:'15px'}}>Нет аккаунта? <button style={{border:'none',backgroundColor:'transparent', color:'rgb(94, 94, 94)', fontSize:'15px', cursor:'pointer'}} onClick={()=> dispatch(switchMethod('register'))}>Зарегистрироваться</button></span>
                         </div>
                     </div>

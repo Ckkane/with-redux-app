@@ -7,7 +7,6 @@ import {
     getData,
     selectItems,
     selectStatus,
-
   } from "@/lib/features/product/productSlice";
   
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
@@ -28,7 +27,12 @@ const Content = () => {
         <div className='container'>
             <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap'}}>
             { status !== 'idle' ? null : items.map((item) => {
-                return <Product key={item.id} product={item} id={item.id} title={item.title} imgUrl={item.imgUrl} description={item.description} price={item.price} popular={item.popular} rating={item.rating} />
+
+                if(item.title === 'Пицца из половинок'){
+                    return <Product color={'#ffc24d'} key={item.id} product={item} id={item.id} title={item.title} imgUrl={item.imgUrl} description={item.description} price={item.price} popular={item.popular} rating={item.rating} />
+                }
+
+                return <Product color={null} key={item.id} product={item} id={item.id} title={item.title} imgUrl={item.imgUrl} description={item.description} price={item.price} popular={item.popular} rating={item.rating} />
             })}
         </div>
         </div>
