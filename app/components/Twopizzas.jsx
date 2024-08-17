@@ -26,26 +26,8 @@ const Twopizzas = () => {
 
     function selectPizza(item, event) {
 
-        let div1 = document.createElement('div');
-        let div2 = document.createElement('div');
-
-
-        div1.style.position = 'absolute'
-
-        div2.style.position = 'relative'
-        div2.style.background = 'white';
-        div2.style.width = '100px'
-        div2.style.height = '100px'
-        div2.style.top = 0
-        div2.style.left = 0
-
-
-        div1.appendChild(div2)
-
-        event.targetaa
-
-        event.target.appendChild(div1)
-
+        
+        console.log(event.target)
 
     }
 

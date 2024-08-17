@@ -25,6 +25,7 @@ const Content = () => {
 
     return (
         <div className='container'>
+            <h1>Пиццы</h1>
             <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap'}}>
             { status !== 'idle' ? null : items.map((item) => {
 

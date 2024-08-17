@@ -10,15 +10,6 @@ const Header = () => {
                 <Image width={120} height={120} src='/logo.png'/>
                 <span style={{marginLeft:'30px'}}>Доставка пиццы в <a style={{color:'#f53823'}} href='https://ya.ru'>Москва</a> </span>
             </div>
-
-            <div className={styles.left}>
-                <button style={{display:'flex',alignItems:'center',justifyContent:'space-between', backgroundColor: "#f0f0f0",border: 'none',padding: '3px 15px',borderRadius: '322px'}}>
-                    <span style={{color: 'rgb(179, 178, 178)', fontSize:'15px'}}>Coins</span>
-                    <Image width={25} height={25} src='/coins.png'/>
-                </button>
-                <Link href='/auth/login'><button className='btn-red'>Войти</button></Link>
-
-            </div>
         </div>
     )
 }

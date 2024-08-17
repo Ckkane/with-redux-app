@@ -27,7 +27,7 @@ const FilledCart = () => {
                         <div style={{overflow:'auto',maxHeight:'530px', backgroundColor:'#fff'}}>
                             {items.map(item => {
                                 return <div style={{ display:'flex', alignItems:'center', padding:'5px 10px'}}>
-                                        <div style={{ backgroundColor:'#e6e6e6', padding:'5px'}}>
+                                        <div style={{ backgroundColor:'#e6e6e6', padding:'5px', display:'flex', justifyContent:'center', alignItems:'center'}}>
                                             <img src={item.imgUrl} width={100} alt="" srcset="" />
                                         </div>
 
