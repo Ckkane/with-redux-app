@@ -120,7 +120,7 @@ type Auth = {
 }
 
 const initialState: Auth = {
-    authMethod: 'register'
+    authMethod: 'login'
 }
 
 export const authSlice = createAppSlice({

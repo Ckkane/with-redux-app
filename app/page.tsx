@@ -6,6 +6,8 @@ import Menu from './components/Menu'
 import Content from './components/Content'
 import Background from './components/Background'
 import TopOffers from './components/TopOffers'
+import Footer from './components/Footer'
+import Discount from './components/Discount'
 
 export default function IndexPage() {
 
@@ -26,8 +28,10 @@ export default function IndexPage() {
             <Menu/>
           </div>
             <Header/>
+            <Discount/>
             <TopOffers/>
             <Content/>
+            <Footer/>
         </div>
 }
 

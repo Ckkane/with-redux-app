@@ -5,12 +5,19 @@ import { PayloadAction } from "@reduxjs/toolkit";
 
 type State = {
     items: Array<Product>,
+    filtredItems: Array<Product>,
     status: string,
     twoPizzasToggle: boolean
 }
 
+type filterByPrice = {
+  from: number,
+  to: number
+}
+
 const initialState: State = {
     items: [],
+    filtredItems:[],
     status: 'idle',
     twoPizzasToggle: false
 }
@@ -24,6 +31,12 @@ export const productSlice = createAppSlice({
     switchToggle: create.reducer(
       (state, action: PayloadAction<boolean>) => {
         state.twoPizzasToggle = action.payload;
+      },
+    ),
+
+    filterItems: create.reducer(
+      (state, action: PayloadAction<filterByPrice>) => {
+        state.filtredItems = [...state.items.filter((item)=> item.price >= action.payload.from && item.price <= action.payload.to)]
       },
     ),
 
@@ -50,14 +63,15 @@ export const productSlice = createAppSlice({
     
     selectors: {
         selectItems: (product) => product.items,
+        selectFiltredItems: (product) => product.filtredItems,
         selectStatus: (product) => product.status,
         getPizzasToggle: (product) => product.twoPizzasToggle
       },
 })
 
-export const { getData, switchToggle } = productSlice.actions;
+export const { getData, switchToggle, filterItems } = productSlice.actions;
 
-export const { selectItems,selectStatus,getPizzasToggle } = productSlice.selectors;
+export const { selectItems,selectStatus,getPizzasToggle,selectFiltredItems } = productSlice.selectors;
 
 // export const incrementIfOdd =
 //   (amount: number): AppThunk =>

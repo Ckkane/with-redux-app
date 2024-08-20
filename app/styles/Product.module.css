@@ -5,6 +5,19 @@
 
 }
 
+
+.product{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 480px;
+    min-width: 350px;
+    max-width: 350px;
+    padding: 30px 10px;
+    margin: 10px 0px;
+}
+
 .checkout{
     display: flex;
     justify-content: space-around;

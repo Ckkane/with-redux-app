@@ -33,7 +33,7 @@ const Menu = () => {
                         <span><Link className={styles.link} href='/'>Акции</Link></span>
                     </div>
                     <div style={{width:'200px', display:'flex', justifyContent:'space-between'}}>
-                        <Link href='/auth/login'><button className='btn-red'>Войти</button></Link>
+                        <Link href='/auth/login'><button className='btn-orange'>Войти</button></Link>
                         <button onClick={()=>{
                             dispatch(switchToggle());
                         }} className='btn-red'>Корзина</button>

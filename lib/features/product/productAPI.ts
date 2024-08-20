@@ -9,7 +9,8 @@
         price: number,
         popular: number,
         rating: number,
-        count: number
+        count: number,
+        discount: number
       }
   }
 
