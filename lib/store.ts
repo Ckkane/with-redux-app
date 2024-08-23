@@ -3,10 +3,11 @@ import { combineSlices, configureStore } from "@reduxjs/toolkit";
 import { productSlice } from "./features/product/productSlice";
 import { minicartSlice } from "./features/minicart/minicartSlice";
 import { authSlice } from "./features/auth/authSlice";
+import { newsSlice } from "./features/news/newsSlice";
 
 // `combineSlices` automatically combines the reducers using
 // their `reducerPath`s, therefore we no longer need to call `combineReducers`.
-const rootReducer = combineSlices(productSlice, minicartSlice, authSlice);
+const rootReducer = combineSlices(productSlice, minicartSlice, authSlice, newsSlice);
 // Infer the `RootState` type from the root reducer
 export type RootState = ReturnType<typeof rootReducer>;
 

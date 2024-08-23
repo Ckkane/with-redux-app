@@ -5,8 +5,8 @@ import Link from 'next/link'
 
 const Header = () => {
     return (
-        <div className='container'>
-            <div style={{marginTop:'90px'}} className={styles.head}>
+        <div style={{marginTop:'90px'}} className='container'>
+            <div className={styles.head}>
                 <div className={styles.right}>
                     <Image width={120} height={120} src='/logo.png'/>
                     <div style={{display:'flex',flexDirection:'column'}}>
@@ -16,11 +16,11 @@ const Header = () => {
                 </div>
             </div>
             <div style={{width:'600px',height:'50px', display:'flex',justifyContent:'space-between',alignItems:'center'}}>
-                <span>Новости и акции</span>
-                <span>Доставка и оплата</span>
-                <span>Отзвывы</span>
-                <span>Вакансии</span>
-                <span>Контакты</span>
+                <span><Link style={{textDecoration:'none', color:'rgb(147, 147, 147)'}} href="/news">Новости и акции</Link></span>
+                <span><a style={{textDecoration:'none', color:'rgb(147, 147, 147)'}} href="">Доставка и оплата</a></span>
+                <span><a style={{textDecoration:'none', color:'rgb(147, 147, 147)'}} href="">Вакансии</a></span>
+                <span><a style={{textDecoration:'none', color:'rgb(147, 147, 147)'}} href="">Контакты</a></span>
+                <span><a style={{textDecoration:'none', color:'rgb(147, 147, 147)'}} href="">Отзвывы</a></span>
             </div>
         </div>
     )
