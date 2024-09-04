@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Head from 'next/head'
+import seosettings from '../seosettings'
 
-import NewsContent from '../components/NewsContent'
+import News from '../components/News'
 import Header from '../components/Header'
 import Menu from '../components/Menu'
 import Content from '../components/Content'
@@ -26,12 +27,10 @@ export default function IndexPage() {
           <div>
             <Menu/>
             <Header/>
-            <NewsContent/>
+            <News/>
             <Footer/>
           </div>
         </div>
 }
 
-export const metadata: Metadata = {
-  title: "Redux Toolkit",
-};
+export const metadata: Metadata = seosettings.news;

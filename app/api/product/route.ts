@@ -1,56 +1,8 @@
 import mongoose from "mongoose";
 import { NextResponse } from "next/server";
 import dbConnect from "@/app/lib/Dbconnect";
-import NewsModel from "@/app/models/NewsModel";
+import ProdctModel from "@/app/models/ProductModel";
 
-
-
-
-export async function GET(){
-    await dbConnect();
-
-
-    try {
-        const news = await NewsModel.find({})
-
-        return NextResponse.json({
-            news: [...news]
-        })
-
-    } catch (error) {
-        return NextResponse.json({
-            message:'error'
-        })
-    }
-
-
-}
-
-export async function PATCH(response : any){
-    await dbConnect();
-
-
-    let data = await response.json();
-
-    console.log(data)
-
-    try {
-        const news = await NewsModel.findOne(data)
-
-        console.log(news)
-
-        return NextResponse.json({
-            news
-        })
-
-    } catch (error) {
-        return NextResponse.json({
-            message:'error'
-        })
-    }
-
-
-}
 
 export async function POST(response : any){
     
@@ -59,17 +11,39 @@ export async function POST(response : any){
     await dbConnect();
 
     try {
-        const doc = new NewsModel({
+        const product = await ProdctModel.find(data)
+
+        return NextResponse.json({
+            product
+        })
+
+    } catch (error) {
+        return NextResponse.json({
+            message:'error'
+        })
+    }
+}
+
+export async function PATCH(response : any){
+    
+    let data = await response.json();
+
+    await dbConnect();
+
+    try {
+        const doc = new ProdctModel({
             title: data.title,
             description: data.description,
             image: data.image,
-            date: Date.now()
+            category: data.category,
+            discount: data.discount,
+            price: data.price
         })
 
-        const news = await doc.save();
+        const product = await doc.save();
 
         return NextResponse.json({
-            news
+            product
         })
 
     } catch (error) {

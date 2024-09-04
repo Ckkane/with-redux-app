@@ -3,6 +3,7 @@
 import styles from '../styles/Menu.module.css'
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation'
 
 import {
     switchToggle
@@ -13,24 +14,65 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 
 const Menu = () => {
 
+
+    let pathName = usePathname();
     const dispatch = useAppDispatch();
+
+    let menuData = [
+        {
+            name: 'Пиццы',
+            path: 'pizzas',
+        },
+        {
+            name: 'Комбо',
+            path: 'kombo',
+        },
+        {
+            name: 'Закуски',
+            path: 'zakyski',
+        },
+        {
+            name: 'Коктейли',
+            path: 'coctails',
+        },
+        {
+            name: 'Кофе',
+            path: 'coffe',
+        },
+        {
+            name: 'Напитки',
+            path: 'drinks',
+        },
+        {
+            name: 'Десерты',
+            path: 'deserts',
+        },
+        {
+            name: 'Любят дети',
+            path: 'childs',
+        },
+        {
+            name: 'Соусы',
+            path: 'sous',
+        },
+        {
+            name: 'Другие товары',
+            path: 'other',
+        },
+        {
+            name: 'Акции',
+            path: 'promo',
+        },
+    ]
 
     return (
         <div className={styles.menu}>
             <div className='container'>
                 <nav style={{display:'flex',justifyContent:'space-between',alignItems:'center',height:'90px'}}>
                     <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', width:'850px',fontSize:'14px', fontWeight:'500'}}>
-                        <span><Link className={styles.link} href='/'>Пиццы</Link></span>
-                        <span><Link className={styles.link} href='/kombo'>Комбо</Link></span>
-                        <span><Link className={styles.link} href='/zakuski'>Закуски</Link></span>
-                        <span><Link className={styles.link} href='/coctails'>Коктейли</Link></span>
-                        <span><Link className={styles.link} href='/coffe'>Кофе</Link></span>
-                        <span><Link className={styles.link} href='/drinks'>Напитки</Link></span>
-                        <span><Link className={styles.link} href='/'>Десерты</Link></span>
-                        <span><Link className={styles.link} href='/'>Любят дети</Link></span>
-                        <span><Link className={styles.link} href='/'>Соусы</Link></span>
-                        <span><Link className={styles.link} href='/'>Другие товары</Link></span>
-                        <span><Link className={styles.link} href='/'>Акции</Link></span>
+                        {menuData.map((item)=>{
+                            return <span><Link className={styles.link + " " + `${pathName === '/' + item.path ? styles.active : ''}`} href={'/product/' + item.path}>{item.name}</Link></span>
+                        })}
                     </div>
                     <div style={{width:'200px', display:'flex', justifyContent:'space-between'}}>
                         <Link href='/auth/login'><button className='btn-orange'>Войти</button></Link>

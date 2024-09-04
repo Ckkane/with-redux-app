@@ -1,75 +1,36 @@
-'use client'
+// 'use client'
 import axios from 'axios'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 
-import {
-    addNews,
-    getNews
-  } from "@/lib/features/news/newsSlice";
+// import {
+//     addNews,
+//     getNews
+//   } from "@/lib/features/news/newsSlice";
 
-import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+// import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 
-const NewsContent = () => {
-
-    const dispatch = useAppDispatch();
-    const news = useAppSelector(getNews);
-
-    useEffect(()=>{
-        axios.get('/api/news')
-        .then((response) => {
-            dispatch(addNews(response.data.news))
-        })
-    },[])
+const NewsContent = ({data}) => {
 
 
-    function date(timestamp) {
-        var date = new Date(timestamp);
-
-        let months = [
-            'января',
-            'февраля',
-            'марта',
-            'апреля',
-            'майя',
-            'июня',
-            'июля',
-            'августа',
-            'сентября',
-            'октября',
-            'ноября',
-            'декабря',
-        ]
-
-        return  date.getUTCDate() + " " + months[date.getMonth()] + " " + date.getUTCFullYear();
-    }
-
-    console.log(news)
+    // console.log(data)
 
     return (
         <div className='container'>
             <div style={{display:'flex',flexDirection:'column'}}>
-                <div>
-                    <span><a href="/"></a>Главная</span>
-                    /
-                    <span><a href="/"></a>Новости и акции</span>
+                <div style={{padding:'30px'}}>
+                    <Link style={{color:'black', textDecoration:'none'}} href={'/'}>Главная</Link>
+                     / 
+                     <Link style={{color:'black', textDecoration:'none'}} href={'/news'}>Новости и акции</Link>
                 </div>
                 
-                <div style={{display:'flex', flexWrap:'wrap', justifyContent:'space-between'}}>
-                    {news.map((item)=>{
-                        return <div style={{display:'flex',flexDirection:'column', alignItems:'center', minWidth:'450px', maxWidth:'450px', margin:'20px'}}>
-                            
-                            <img width={300} src={item.image || "https://aligator.uz/img/empty-img.png"} alt="" srcset="" />
-                            <h1 style={{fontSize:'25px'}}>{item.title}</h1>
-                            <span className='description' style={{fontSize:'15px',padding:'15px'}}>{item.description}</span>
-
-                            <div style={{display:'flex',justifyContent:'space-between', width:'100%', marginRight:'20px'}}>
-                                <div></div>
-                                <span>{date(item.date)}</span>
-                            </div>
-                        </div>
-                    })}
+                <div style={{height:'900px', display:'flex', flexDirection:'column', alignItems:'center'}}>
+                    <img style={{borderRadius:'10px'}} width={400} height={400} src={data.news.image || "https://aligator.uz/img/empty-img.png"} alt="" srcset="" />
+                    <h1>{data.news.title}</h1>
+                    <div style={{width:'900px'}}>
+                        <span style={{color:'rgb(147, 147, 147)'}}>{data.news.description}</span>
+                    </div>
                 </div>
 
             </div>

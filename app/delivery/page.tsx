@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import Head from 'next/head'
-import seosettings from "./seosettings";
+import seosettings from '../seosettings'
 
-import Header from './components/Header'
-import Menu from './components/Menu'
-import Content from './components/Content'
-import TopOffers from './components/TopOffers'
-import Footer from './components/Footer'
-import Discount from './components/Discount'
+import News from '../components/News'
+import Header from '../components/Header'
+import Menu from '../components/Menu'
+import Footer from '../components/Footer'
+import DeliveryContent from '../components/DeliveryContent'
 
 export default function IndexPage() {
 
@@ -20,18 +19,15 @@ export default function IndexPage() {
               <link href="https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"></link>
               <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></link>
               <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet"></link>
-              <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></link>
 
             </Head>
           <div>
             <Menu/>
-          </div>
             <Header/>
-            <Discount/>
-            <TopOffers/>
-            <Content/>
+            <DeliveryContent/>
             <Footer/>
+          </div>
         </div>
 }
 
-export const metadata: Metadata = seosettings.pizzas;
+export const metadata: Metadata = seosettings.news;
