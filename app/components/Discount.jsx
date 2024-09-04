@@ -1,21 +1,6 @@
+const Discount = ({data}) => {
 
-'use client'
-import styles from '../styles/Menu.module.css'
-
-import Link from 'next/link';
-
-import {
-    selectItems
-  } from "@/lib/features/product/productSlice";
-  
-import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-
-
-const Discount = () => {
-
-    const dispatch = useAppDispatch();
-
-    let items = useAppSelector(selectItems);
+    let items = data.product;
 
     return (
         <div>
@@ -23,8 +8,8 @@ const Discount = () => {
                 <h1 style={{fontSize:'25px'}}>Скидки дня</h1>
                 <div style={{display:'flex'}}>
                     {[...items].sort((a,b) => b.discount - a.discount).slice(0,4).map((e)=>{
-                        return <div style={{display:'flex', flexDirection:'column', backgroundColor:'rgb(255 243 218)', padding:'15px', boxShadow:'rgb(242, 242, 242) 1px 1px 10px',borderRadius:'10px',margin:'10px'}}>
-                            <img height={150} width={150} src={e.imgUrl} alt="" srcset="" />
+                        return <div style={{display:'flex', flexDirection:'column', alignItems:'center', backgroundColor:'rgb(255 243 218)', padding:'15px', boxShadow:'rgb(242, 242, 242) 1px 1px 10px',borderRadius:'10px',margin:'10px'}}>
+                            <img height={150} width={150} src={e.image} alt="" srcset="" />
                             <span style={{textAlign:'center', fontWeight:'500'}}>{e.title}</span>
                             <div style={{display:'flex',width:'100%',justifyContent:'space-between',alignItems:'center'}}>
                                 <span style={{color:'#1acd1a'}}>Скидка {e.discount}%</span>

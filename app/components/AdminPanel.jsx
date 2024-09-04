@@ -52,6 +52,7 @@ const AdminPanel = () => {
             title: productTitle,
             imgUrl: productImage,
             description: productDescription || "",
+            image: productImage,
             price: productPrice,
             discount: productDiscount,
             category: productCategory

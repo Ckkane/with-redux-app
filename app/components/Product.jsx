@@ -16,11 +16,10 @@ const Product = ({product}) => {
     const items = useAppSelector(selectItems);
     const status = useAppSelector(selectStatus);
     return (
-
         <div className={styles.product}>
-            <img src={product.imgUrl} style={{zIndex:'2'}} width={250} alt="" srcset="" />
+            <img src={product.image} style={{zIndex:'2'}} width={250} alt="" srcset="" />
             <h1 style={{fontSize:'25px'}}>{product.title}</h1>
-            <div style={{width:'300px',height:'300px'}}>
+            <div style={{width:'330px',height:'300px'}}>
                 <span style={{color:'rgb(147, 147, 147)', fontSize:'13px'}}>{product.description}</span>
             </div>
             <div className={styles.checkout}>
@@ -34,6 +33,7 @@ const Product = ({product}) => {
                     }} className='btn-orange'>Собрать</button> : 
                     <button onClick={()=> {
                         dispatch(addToCart(product))
+                        console.log(product)
                     }} className='btn-red'>Добавить</button>}
             </div>
         </div>

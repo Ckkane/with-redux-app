@@ -40,6 +40,12 @@ export const productSlice = createAppSlice({
       },
     ),
 
+    setData: create.reducer(
+      (state, action: PayloadAction<Array<Product>>) => {
+        state.items = action.payload;
+      },
+    ),
+
     getData: create.asyncThunk(
       async () => {
         const response = await fetchData();

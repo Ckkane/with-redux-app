@@ -28,7 +28,7 @@ const FilledCart = () => {
                             {items.map(item => {
                                 return <div style={{ display:'flex', alignItems:'center', padding:'5px 10px'}}>
                                         <div style={{ backgroundColor:'rgb(245, 234, 233)', borderRadius:'10px', boxShadow:'rgb(242, 242, 242) 1px 1px 10px', padding:'5px', display:'flex', justifyContent:'center', alignItems:'center'}}>
-                                            <img src={item.imgUrl} width={100} alt="" srcset="" />
+                                            <img src={item.image} width={100} alt="" srcset="" />
                                         </div>
 
 

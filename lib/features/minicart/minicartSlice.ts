@@ -36,8 +36,8 @@ export const minicartSlice = createAppSlice({
     addToCart: create.reducer(
       (state, action: PayloadAction<Product>) => {
 
-        if(state.items.find((item)=> item.id === action.payload.id)){
-          state.items.find((item)=> item.id === action.payload.id ? item.count++ : null)
+        if(state.items.find((item)=> item._id === action.payload._id)){
+          state.items.find((item)=> item._id === action.payload._id ? item.count++ : null)
           localStorage.setItem('mini-cart-items', JSON.stringify(state.items))
           return;
         }
@@ -62,7 +62,7 @@ export const minicartSlice = createAppSlice({
     minusItem: create.reducer(
       (state, action: PayloadAction<Product>) => {
 
-        state.items.find((item)=> item.id === action.payload.id ? item.count-- : null)
+        state.items.find((item)=> item._id === action.payload._id ? item.count-- : null)
 
         state.items = [...state.items.filter((item)=> item.count > 0)]
         updateCart(state)
@@ -71,14 +71,14 @@ export const minicartSlice = createAppSlice({
     plusItem: create.reducer(
       (state, action: PayloadAction<Product>) => {
 
-        state.items.find((item)=> item.id === action.payload.id ? item.count++ : null)
+        state.items.find((item)=> item._id === action.payload._id ? item.count++ : null)
         updateCart(state)
       },
     ),
     deleteItem: create.reducer(
       (state, action: PayloadAction<Product>) => {
 
-        state.items = state.items.filter((item) => item.id !== action.payload.id )
+        state.items = state.items.filter((item) => item._id !== action.payload._id )
 
         updateCart(state)
       },

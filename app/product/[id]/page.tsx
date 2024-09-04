@@ -93,9 +93,9 @@ export default function IndexPage({ params: {id} }) {
             <Menu/>
             </div>
                 <Header/>
-                <Discount/>
-                <TopOffers/>
-                <Content/>
+                <Discount data={data}/>
+                <TopOffers data={data}/>
+                <Content data={data}/>
                 <Footer/>
             </div>
     })()

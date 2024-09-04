@@ -14,13 +14,13 @@ import {
   
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 
-const Content = () => {
+const Content = ({data}) => {
 
 
     const dispatch = useAppDispatch();
-    const items = useAppSelector(selectItems);
+    const items = data.product;
     const status = useAppSelector(selectStatus);
-    const filtredItems = useAppSelector(selectFiltredItems);
+    const filtredItems = items;
 
 
     let fromRef = React.useRef(null);
@@ -104,7 +104,7 @@ const Content = () => {
                     </div>
                     <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap'}}>
                     { status !== 'idle' ? null : filtredItems.map((item) => {
-                        return <Product key={item.id} product={item} />
+                        return <Product key={item._id} product={item} />
                     })}
                     </div>
                 </div>
