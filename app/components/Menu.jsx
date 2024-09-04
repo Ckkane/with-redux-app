@@ -21,7 +21,7 @@ const Menu = () => {
     let menuData = [
         {
             name: 'Пиццы',
-            path: 'pizzas',
+            path: 'pizza',
         },
         {
             name: 'Комбо',
