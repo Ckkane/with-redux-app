@@ -41,9 +41,24 @@ const Content = ({data}) => {
 
     },[items])
 
+
+    let category = {
+        pizza: 'Пиццы',
+        kombo: 'Комбо-завтраки',
+        zakyski: 'Закуски',
+        coctails: 'Коктейли',
+        coffe: 'Кофе',
+        drinks: 'Напитки',
+        deserts: 'Десерты',
+        childs: 'Любят дети',
+        sous: 'Соусы',
+        other: 'Другие товары',
+        promo: 'Акции'
+    }
+
     return (
         <div className='container'>
-            <h1>Пиццы</h1>
+            <h1>{category[items[0].category]}</h1>
             <div style={{display:'flex'}}>
                 <div style={{width:'300px', borderRadius:'10px', margin:'10px', backgroundColor:'transparent'}}>
                     <div style={{marginTop:'30px',display:'flex',justifyContent:'center',flexDirection:'column'}}>

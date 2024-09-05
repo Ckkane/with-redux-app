@@ -22,12 +22,12 @@ const FilledCart = () => {
 
     return (<div className={styles.wrapper}>
                 <div style={{width:'100%', display:'flex',flexDirection:"column",justifyContent:'space-between'}}>
-                    <div style={{backgroundColor:'#fafafa'}}>
+                    <div>
                         <h1 style={{textAlign:'center', padding:'20px 0px'}}>Корзина</h1>
                         <div style={{overflow:'auto',maxHeight:'530px', backgroundColor:'#fff'}}>
                             {items.map(item => {
                                 return <div style={{ display:'flex', alignItems:'center', padding:'5px 10px'}}>
-                                        <div style={{ backgroundColor:'rgb(245, 234, 233)', borderRadius:'10px', boxShadow:'rgb(242, 242, 242) 1px 1px 10px', padding:'5px', display:'flex', justifyContent:'center', alignItems:'center'}}>
+                                        <div style={{ backgroundColor:'rgb(239 239 239)', borderRadius:'10px', boxShadow:'rgb(242, 242, 242) 1px 1px 10px', padding:'5px', display:'flex', justifyContent:'center', alignItems:'center'}}>
                                             <img src={item.image} width={100} alt="" srcset="" />
                                         </div>
 
@@ -44,9 +44,9 @@ const FilledCart = () => {
 
                                         <div style={{display:'flex',alignContent:'center',flexDirection:'column', justifyContent:'space-between', width:'100%'}}>
                                             <div>
-                                                <span style={{fontSize:'18px',padding:'10px', fontWeight:'600'}}>{item.title}</span>
+                                                <span style={{fontSize:'14px',padding:'10px', fontWeight:'600'}}>{item.title}</span>
                                             </div>
-                                            <div style={{display:'flex', backgroundColor:'#f4e9e8', boxShadow:'rgb(242, 242, 242) 1px 1px 10px', borderRadius:'7px',width:'90px',height:'20px', fontSize:'17px',margin:'10px'}}>
+                                            <div style={{display:'flex', backgroundColor:'rgb(239 239 239)', boxShadow:'rgb(242, 242, 242) 1px 1px 10px', borderRadius:'4px',width:'90px',height:'20px', fontSize:'17px',margin:'10px'}}>
                                                 <div style={{display:'flex', height:'100%',justifyContent:'center',alignItems:'center', width:'30px'}}>
                                                     <button onClick={() => dispatch(minusItem(item))} className='btn'>-</button>
                                                 </div>

@@ -18,7 +18,7 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
-                <div style={{width:'600px',height:'50px', display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+                <div style={{width:'550px',height:'50px', display:'flex',justifyContent:'space-between',alignItems:'center', fontSize:'15px'}}>
                     <span><Link style={{textDecoration:'none', color:'rgb(147, 147, 147)'}} href="/news">Новости и акции</Link></span>
                     <span><Link style={{textDecoration:'none', color:'rgb(147, 147, 147)'}} href="/delivery">Доставка и оплата</Link></span>
                     <span><a style={{textDecoration:'none', color:'rgb(147, 147, 147)'}} href="">Вакансии</a></span>
