@@ -9,6 +9,7 @@ import {
     selectItems,
     selectStatus,
     filterItems,
+    setData,
     selectFiltredItems
   } from "@/lib/features/product/productSlice";
   
@@ -18,9 +19,9 @@ const Content = ({data}) => {
 
 
     const dispatch = useAppDispatch();
-    const items = data.product;
+    const items = useAppSelector(selectItems)
     const status = useAppSelector(selectStatus);
-    const filtredItems = items;
+    const filtredItems = useAppSelector(selectFiltredItems);
 
 
     let fromRef = React.useRef(null);
@@ -28,7 +29,8 @@ const Content = ({data}) => {
 
 
     useEffect(() => {
-        dispatch(getData())
+        // dispatch(getData())
+        dispatch(setData(data.product))
     },[])
 
 
@@ -58,7 +60,7 @@ const Content = ({data}) => {
 
     return (
         <div className='container'>
-            <h1>{category[items[0].category]}</h1>
+            {items.length > 0 ? <h1>{category[items[0].category]}</h1> : null}
             <div style={{display:'flex'}}>
                 <div style={{width:'300px', borderRadius:'10px', margin:'10px', backgroundColor:'transparent'}}>
                     <div style={{marginTop:'30px',display:'flex',justifyContent:'center',flexDirection:'column'}}>

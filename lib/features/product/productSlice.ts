@@ -75,7 +75,7 @@ export const productSlice = createAppSlice({
       },
 })
 
-export const { getData, switchToggle, filterItems } = productSlice.actions;
+export const { getData, switchToggle, filterItems, setData } = productSlice.actions;
 
 export const { selectItems,selectStatus,getPizzasToggle,selectFiltredItems } = productSlice.selectors;
 

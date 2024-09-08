@@ -13,8 +13,7 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 
 
 const Menu = () => {
-
-
+    
     let pathName = usePathname();
     const dispatch = useAppDispatch();
 
@@ -71,7 +70,7 @@ const Menu = () => {
                 <nav style={{display:'flex',justifyContent:'space-between',alignItems:'center',height:'90px'}}>
                     <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', width:'850px',fontSize:'14px', fontWeight:'500'}}>
                         {menuData.map((item)=>{
-                            return <span><Link className={styles.link + " " + `${pathName === '/' + item.path ? styles.active : ''}`} href={'/product/' + item.path}>{item.name}</Link></span>
+                            return <span><Link className={styles.link + " " + `${pathName === '/product/' + item.path ? styles.active : ''}`} href={'/product/' + item.path}>{item.name}</Link></span>
                         })}
                     </div>
                     <div style={{width:'200px', display:'flex', justifyContent:'space-between'}}>
