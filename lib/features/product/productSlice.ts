@@ -1,23 +1,50 @@
 import { createAppSlice } from "@/lib/createAppSlice";
 import { fetchData } from "./productAPI";
+import { PayloadAction } from "@reduxjs/toolkit";
 
 
 type State = {
     items: Array<Product>,
-    status: string
+    filtredItems: Array<Product>,
+    status: string,
+    twoPizzasToggle: boolean
+}
+
+type filterByPrice = {
+  from: number,
+  to: number
 }
 
 const initialState: State = {
     items: [],
-    status: 'idle'
+    filtredItems:[],
+    status: 'idle',
+    twoPizzasToggle: false
 }
-
 
 export const productSlice = createAppSlice({
   name: "product",
 
   initialState,
   reducers: (create) => ({
+
+    switchToggle: create.reducer(
+      (state, action: PayloadAction<boolean>) => {
+        state.twoPizzasToggle = action.payload;
+      },
+    ),
+
+    filterItems: create.reducer(
+      (state, action: PayloadAction<filterByPrice>) => {
+        state.filtredItems = [...state.items.filter((item)=> item.price >= action.payload.from && item.price <= action.payload.to)]
+      },
+    ),
+
+    setData: create.reducer(
+      (state, action: PayloadAction<Array<Product>>) => {
+        state.items = action.payload;
+      },
+    ),
 
     getData: create.asyncThunk(
       async () => {
@@ -43,13 +70,15 @@ export const productSlice = createAppSlice({
     
     selectors: {
         selectItems: (product) => product.items,
-        selectStatus: (product) => product.status
+        selectFiltredItems: (product) => product.filtredItems,
+        selectStatus: (product) => product.status,
+        getPizzasToggle: (product) => product.twoPizzasToggle
       },
 })
 
-export const { getData } = productSlice.actions;
+export const { getData, switchToggle, filterItems, setData } = productSlice.actions;
 
-export const { selectItems,selectStatus } = productSlice.selectors;
+export const { selectItems,selectStatus,getPizzasToggle,selectFiltredItems } = productSlice.selectors;
 
 // export const incrementIfOdd =
 //   (amount: number): AppThunk =>

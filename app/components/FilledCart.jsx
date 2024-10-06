@@ -22,13 +22,13 @@ const FilledCart = () => {
 
     return (<div className={styles.wrapper}>
                 <div style={{width:'100%', display:'flex',flexDirection:"column",justifyContent:'space-between'}}>
-                    <div style={{backgroundColor:'#fafafa'}}>
-                        <h1 style={{textAlign:'center', padding:'40px 0px'}}>Корзина</h1>
+                    <div>
+                        <h1 style={{textAlign:'center', padding:'20px 0px'}}>Корзина</h1>
                         <div style={{overflow:'auto',maxHeight:'530px', backgroundColor:'#fff'}}>
                             {items.map(item => {
                                 return <div style={{ display:'flex', alignItems:'center', padding:'5px 10px'}}>
-                                        <div style={{ backgroundColor:'#e6e6e6', padding:'5px'}}>
-                                            <img src={item.imgUrl} width={100} alt="" srcset="" />
+                                        <div style={{ backgroundColor:'rgb(239 239 239)', borderRadius:'10px', boxShadow:'rgb(242, 242, 242) 1px 1px 10px', padding:'5px', display:'flex', justifyContent:'center', alignItems:'center'}}>
+                                            <img src={item.image} width={100} alt="" srcset="" />
                                         </div>
 
 
@@ -44,13 +44,13 @@ const FilledCart = () => {
 
                                         <div style={{display:'flex',alignContent:'center',flexDirection:'column', justifyContent:'space-between', width:'100%'}}>
                                             <div>
-                                                <span style={{fontSize:'18px',padding:'10px', fontWeight:'600'}}>{item.title}</span>
+                                                <span style={{fontSize:'14px',padding:'10px', fontWeight:'600'}}>{item.title}</span>
                                             </div>
-                                            <div style={{display:'flex',border:'1px solid rgb(238, 238, 238)',borderRadius:'7px',width:'90px',height:'20px', fontSize:'17px',margin:'10px'}}>
+                                            <div style={{display:'flex', backgroundColor:'rgb(239 239 239)', boxShadow:'rgb(242, 242, 242) 1px 1px 10px', borderRadius:'4px',width:'90px',height:'20px', fontSize:'17px',margin:'10px'}}>
                                                 <div style={{display:'flex', height:'100%',justifyContent:'center',alignItems:'center', width:'30px'}}>
                                                     <button onClick={() => dispatch(minusItem(item))} className='btn'>-</button>
                                                 </div>
-                                                <div style={{width:'45px',display:'flex',justifyContent:'center',height:'100%', alignItems:'center',borderLeft:'1px solid rgb(238, 238, 238)',borderRight:'1px solid rgb(238, 238, 238)'}}>
+                                                <div style={{width:'45px',display:'flex',justifyContent:'center',height:'100%', alignItems:'center',borderLeft:'1px solid white',borderRight:'1px solid white'}}>
                                                     <span style={{fontSize:'12px'}}>{item.count}</span>
                                                 </div>
                                                 <div style={{display:'flex', height:'100%',justifyContent:'center',alignItems:'center',width:'30px'}}>
@@ -59,7 +59,7 @@ const FilledCart = () => {
                                             </div>
                                         </div>
                                         <div style={{marginRight:'10px'}}>
-                                            <span>{item.price * item.count}₽</span>
+                                            <span style={{color:'rgb(147, 147, 147)'}}>{item.price * item.count}₽</span>
                                         </div>
                                     </div>
                             })}
@@ -87,11 +87,11 @@ const FilledCart = () => {
                                     <span>Бесплатно</span>
                                 </div>
                             </div>
-
+{/* 
                         <div style={{width:'100%', display:'flex', justifyContent:'center'}}>
                             <input type="text" placeholder='Введите купон' />
                             <button className='btn-red' style={{borderRadius:'0'}}>Применить</button>
-                        </div>
+                        </div> */}
                         <div style={{marginTop:'10px', display:'flex',justifyContent:'center'}}>
                             <button className='btn-red' style={{borderRadius:'0'}}>Оформить заказ</button>
                         </div>

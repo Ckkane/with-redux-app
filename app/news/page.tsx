@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
 import Head from 'next/head'
+import seosettings from '../seosettings'
 
-import Auth from '../../components/Authentication/Auth'
+import News from '../components/News'
+import Header from '../components/Header'
+import Menu from '../components/Menu'
+import Content from '../components/Content'
+import Background from '../components/Background'
+import TopOffers from '../components/TopOffers'
+import Footer from '../components/Footer'
+import Discount from '../components/Discount'
 
 export default function IndexPage() {
 
@@ -17,11 +25,12 @@ export default function IndexPage() {
 
             </Head>
           <div>
-            <Auth/>
+            <Menu/>
+            <Header/>
+            <News/>
+            <Footer/>
           </div>
         </div>
 }
 
-export const metadata: Metadata = {
-  title: "Redux Toolkit",
-};
+export const metadata: Metadata = seosettings.news;

@@ -10,3 +10,7 @@
     color:black;
     text-decoration: none;
 }
+
+.active{
+    font-weight: 700;
+}

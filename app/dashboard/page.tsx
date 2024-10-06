@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Head from 'next/head'
 
-import Auth from '../../components/Authentication/Auth'
+import AdminPanel from '../components/AdminPanel'
 
 export default function IndexPage() {
 
@@ -17,7 +17,7 @@ export default function IndexPage() {
 
             </Head>
           <div>
-            <Auth/>
+            <AdminPanel/>
           </div>
         </div>
 }
